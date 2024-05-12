@@ -17,7 +17,7 @@ function backtrace!(backtraced_positions,original_positions,direction)
     backtraced_positions[:] = mod1.(original_positions - TIME_STEP_LENGTH * direction,1.0)
 end
 
-function interpolate_positions!(field_interpolated,field,interval_x,interval_y,interval_z,query_points_x,query_points_y,query_points_)
+function interpolate_positions!(field_interpolated,field,interval_x,interval_y,interval_z,query_points_x,query_points_y,query_points_z)
     interpolator = LinearInterpolation((interval_x, interval_y, interval_z),field,)
     field_interpolated[:] = interpolator.(query_points_x, query_points_y, query_points_z)
 end
